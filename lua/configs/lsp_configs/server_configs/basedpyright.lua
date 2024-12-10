@@ -2,9 +2,9 @@ return {
   settings = {
     basedpyright = {
       analysis = {
-        typeCheckingMode = "standard",
+        -- typeCheckingMode = "standard",
       },
-      disableLanguageServices = true,
+      -- disableLanguageServices = true,
     }
   }
 }

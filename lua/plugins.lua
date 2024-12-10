@@ -57,11 +57,7 @@ local install_plugins = {
       {
         -- "Jint-lzxy/lsp_signature.nvim",
         "ray-x/lsp_signature.nvim",
-        config = function()
-          require("lsp_signature").setup({
-            floating_window = true,
-          })
-        end,
+        config = require("configs.completion.lsp_signature"),
       },
     }
   },
@@ -147,6 +143,7 @@ local install_plugins = {
         "JoosepAlviste/nvim-ts-context-commentstring",
         config = require("configs.syntax_highlight.nvim-ts-context-commentstring"),
       },
+      -- { "nvim-treesitter/nvim-treesitter-context" },
     },
   },
   {
@@ -278,7 +275,15 @@ local install_plugins = {
     lazy = true,
     ft = "markdown",
     build = ":call mkdp#util#install()",
-  }
+  },
+  {
+    "fei6409/log-highlight.nvim",
+    lazy = true,
+    ft = "log",
+    config = function()
+      require("log-highlight").setup()
+    end,
+  },
 }
 
 local lazy_opts = {

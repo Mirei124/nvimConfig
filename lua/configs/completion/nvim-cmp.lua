@@ -60,10 +60,10 @@ return function()
         winhighlight = "Normal:CmpDoc",
       },
     },
-    -- sorting = {
-    --   priority_weight = 2,
-    --   comparators = comparators,
-    -- },
+    sorting = {
+      priority_weight = 2,
+      comparators = comparators,
+    },
     formatting = {
       fields = { "abbr", "kind", "menu" },
       format = function(entry, vim_item)
@@ -145,6 +145,11 @@ return function()
         s = cmp.mapping.confirm({ select = true }),
         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
       }),
+      ["C-n"] = cmp.mapping(function(_)
+        if require("luasnip").expand_or_locally_jumpable() then
+          require("luasnip").expand_or_jump()
+        end
+      end, { "i", "s" }),
     }),
     snippet = {
       expand = function(args)

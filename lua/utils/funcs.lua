@@ -1,6 +1,7 @@
 Format_blacklist_clients = {
   "bashls",
   "marksman",
+  "pylsp",
   "pyright",
 }
 

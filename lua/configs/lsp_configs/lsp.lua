@@ -96,5 +96,5 @@ return function()
     end
   })
 
-  vim.api.nvim_command("LspStart")
+  pcall(vim.cmd.LspStart)
 end

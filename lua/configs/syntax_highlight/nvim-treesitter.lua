@@ -35,7 +35,7 @@ return function()
       },
       move = {
         enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
+        set_jumps = true,
         goto_next_start = {
           ["]["] = "@function.outer",
           ["]m"] = "@class.outer",

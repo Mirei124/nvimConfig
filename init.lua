@@ -17,4 +17,4 @@ require("plugins")
 require("keymaps")
 require("autocmd")
 
--- https://github.com/ayamir/nvimdots 218838d
+-- https://github.com/ayamir/nvimdots 02aff10

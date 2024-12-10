@@ -67,7 +67,7 @@ return function()
         "", -- for all buffers without a file type
         "aerial",
         "alpha",
-        "big_file_disabled_ft",
+        "bigfile",
         "dashboard",
         "dotooagenda",
         "flutterToolsOutline",
