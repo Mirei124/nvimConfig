@@ -356,7 +356,7 @@ local plug_map = {
       end)
       :with_noremap()
       :with_silent()
-      :with_desc("ui: Toggle theme"),
+      :with_desc("ui: Toggle day/night theme"),
 }
 bind.nvim_load_mapping(plug_map)
 
