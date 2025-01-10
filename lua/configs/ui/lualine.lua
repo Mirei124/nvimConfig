@@ -2,7 +2,10 @@ return function()
   require('lualine').setup({
     options = {
       theme = My_theme,
-      component_separators = { left = '|', right = '|' }
+      component_separators = { left = '|', right = '|' },
+      disabled_filetypes = {
+        statusline = { "NvimTree" },
+      },
     },
     sections = {
       lualine_a = { 'mode' },
