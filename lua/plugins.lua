@@ -135,10 +135,10 @@ local install_plugins = {
         "NvChad/nvim-colorizer.lua",
         config = require("configs.syntax_highlight.nvim-colorizer"),
       },
-      {
-        "hiphish/rainbow-delimiters.nvim",
-        config = require("configs.syntax_highlight.rainbow-delimiters"),
-      },
+      -- {
+      --   "hiphish/rainbow-delimiters.nvim",
+      --   config = require("configs.syntax_highlight.rainbow-delimiters"),
+      -- },
       {
         "JoosepAlviste/nvim-ts-context-commentstring",
         config = require("configs.syntax_highlight.nvim-ts-context-commentstring"),
