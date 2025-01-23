@@ -63,7 +63,8 @@ return function()
 
   -- :h vim.lsp.ClientConfig
   local opts = {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    -- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
   }
 
   require("mason-lspconfig").setup_handlers({

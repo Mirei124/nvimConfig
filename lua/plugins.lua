@@ -84,6 +84,7 @@ local install_plugins = {
   --- completion -------------------------------------------
   {
     "hrsh7th/nvim-cmp",
+    enabled = false,
     lazy = true,
     event = "InsertEnter",
     config = require("configs.completion.nvim-cmp"),
@@ -109,6 +110,33 @@ local install_plugins = {
       { "kdheepak/cmp-latex-symbols" },
       { "ray-x/cmp-treesitter" },
     }
+  },
+  {
+    "saghen/blink.cmp",
+    -- enabled = false,
+    version = "*",
+    lazy = true,
+    event = "InsertEnter",
+    config = require("configs.completion.blink"),
+    dependencies = {
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+        config = require("configs.completion.LuaSnip"),
+        dependencies = { "rafamadriz/friendly-snippets" },
+      },
+      { "onsails/lspkind.nvim" },
+      {
+        "Saghen/blink.compat",
+        dependencies = {
+          { "hrsh7th/cmp-nvim-lua" },
+          { "f3fora/cmp-spell" },
+          { "kdheepak/cmp-latex-symbols" },
+          { "ray-x/cmp-treesitter" },
+        },
+      },
+    },
   },
   --- syntax highlight -------------------------------------
   {
