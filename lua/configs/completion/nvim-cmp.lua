@@ -145,7 +145,7 @@ return function()
         s = cmp.mapping.confirm({ select = true }),
         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
       }),
-      ["C-n"] = cmp.mapping(function(_)
+      ["C-m"] = cmp.mapping(function(_)
         if require("luasnip").expand_or_locally_jumpable() then
           require("luasnip").expand_or_jump()
         end
