@@ -95,22 +95,22 @@ return function()
         nvim_lua = {
           name = "nvim_lua",
           module = "blink.compat.source",
-          score_offset = 3,
+          score_offset = 0,
         },
         spell = {
           name = "spell",
           module = "blink.compat.source",
-          score_offset = 3,
+          score_offset = 0,
         },
         latex_symbols = {
           name = "latex_symbols",
           module = "blink.compat.source",
-          score_offset = 3,
+          score_offset = 0,
         },
         treesitter = {
           name = "treesitter",
           module = "blink.compat.source",
-          score_offset = 3,
+          score_offset = 0,
         },
       }
     },

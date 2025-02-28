@@ -5,8 +5,6 @@ local map_cmd = bind.map_cmd
 local map_callback = bind.map_callback
 local et = bind.escape_termcode
 
-Diagnostic_show = true
-
 vim.cmd([[
 function! Zoom ()
     " check if is the zoomed state (tabnumber > 1 && window == 1)
@@ -443,16 +441,14 @@ local function load_lsp_keymap(buf)
         :with_buffer(buf)
         :with_desc("lsp: Show outgoing calls"),
     ["n|<leader>tt"] = map_callback(function()
-          if (Diagnostic_show) then
-            Diagnostic_show = false
+          if (vim.diagnostic.is_enabled()) then
             vim.notify("Disable diagnostic", vim.log.levels.INFO,
               { title = "LSP" })
-            return vim.diagnostic.hide()
+            return vim.diagnostic.enable(false)
           else
-            Diagnostic_show = true
             vim.notify("Enable diagnostic", vim.log.levels.INFO,
               { title = "LSP" })
-            return vim.diagnostic.enable()
+            return vim.diagnostic.enable(true)
           end
         end)
         :with_silent()
