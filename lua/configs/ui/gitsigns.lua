@@ -29,7 +29,7 @@ return function()
           :with_expr()
           :with_desc("git: Goto prev hunk"),
       ["n|<leader>hb"] = bind.map_callback(function()
-            actions.blame_line({ full = true })
+            actions.toggle_current_line_blame()
           end)
           :with_buffer(buf)
           :with_desc("git: Blame line"),
