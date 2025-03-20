@@ -1,6 +1,7 @@
-local night_theme = "carbonfox"
-local day_theme = "dayfox"
+local night_theme = "night-owl" -- koehler
+local day_theme = "shine"
 My_theme = night_theme
+My_lualine_theme = "nord"
 
 return {
   toggle_theme = function(target_theme)
@@ -14,7 +15,8 @@ return {
     end
     vim.cmd("colorscheme " .. target_theme)
     require("lualine").setup({
-      options = { theme = target_theme }
+      -- options = { theme = target_theme }
+      options = { theme = My_lualine_theme }
     })
     My_theme = target_theme
   end

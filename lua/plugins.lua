@@ -1,7 +1,15 @@
 local install_plugins = {
   --- ui ---------------------------------------------------
+  -- {
+  --   "EdenEast/nightfox.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("colorscheme " .. My_theme)
+  --   end,
+  -- },
   {
-    "EdenEast/nightfox.nvim",
+    "oxfist/night-owl.nvim",
     lazy = false,
     priority = 1000,
     config = function()
