@@ -26,16 +26,22 @@ return function()
 
   -- Set icons for sidebar.
   local icons = require("utils.icons").get("diagnostics", true)
-  local diagnostic_icons = {
-    Error = icons.Error_alt,
-    Warn = icons.Warning_alt,
-    Info = icons.Information_alt,
-    Hint = icons.Hint_alt,
-  }
-  for type, icon in pairs(diagnostic_icons) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl })
-  end
+  vim.diagnostic.config({
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = icons.Error_alt,
+        [vim.diagnostic.severity.WARN] = icons.Warning_alt,
+        [vim.diagnostic.severity.INFO] = icons.Information_alt,
+        [vim.diagnostic.severity.HINT] = icons.Hint_alt,
+      },
+      linehl = {
+        [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+        [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+        [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+        [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+      },
+    }
+  })
 
   --- lspconfig --------------------------------------------
   local lspconfig = require("lspconfig")
