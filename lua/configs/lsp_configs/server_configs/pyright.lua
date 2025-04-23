@@ -1,7 +1,7 @@
 return {
   settings = {
     pyright = {
-      disableLanguageServices = true,
+      -- disableLanguageServices = true,
     },
     python = {
       analysis = {

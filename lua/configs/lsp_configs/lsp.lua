@@ -34,12 +34,12 @@ return function()
         [vim.diagnostic.severity.INFO] = icons.Information_alt,
         [vim.diagnostic.severity.HINT] = icons.Hint_alt,
       },
-      linehl = {
-        [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-        [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-        [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-        [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-      },
+      -- linehl = {
+      --   [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      --   [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      --   [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+      --   [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+      -- },
     }
   })
 
