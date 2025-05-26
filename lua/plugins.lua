@@ -293,6 +293,12 @@ local install_plugins = {
       require("neogen").setup({ snippet_engine = "luasnip" })
     end
   },
+  {
+    "nvim-orgmode/orgmode",
+    event = "VeryLazy",
+    ft = { "org" },
+    config = require("configs.tools.orgmode"),
+  },
   --- lang -------------------------------------------------
   {
     "folke/neodev.nvim",
