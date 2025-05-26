@@ -28,7 +28,7 @@ return function()
   local icons = require("utils.icons").get("diagnostics", true)
   vim.diagnostic.config({
     underline = { severity = vim.diagnostic.severity.ERROR },
-    virtual_text = { severity = vim.diagnostic.severity.ERROR },
+    virtual_text = false,
     virtual_lines = false,
     signs = {
       text = {
