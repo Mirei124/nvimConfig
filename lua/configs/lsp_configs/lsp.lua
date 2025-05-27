@@ -43,43 +43,39 @@ return function()
   })
 
   --- lspconfig --------------------------------------------
-  local lspconfig = require("lspconfig")
-
   -- :h vim.lsp.ClientConfig
   local opts = {
     -- capabilities = require("cmp_nvim_lsp").default_capabilities(),
     capabilities = require("blink.cmp").get_lsp_capabilities(),
   }
+  vim.lsp.config("*", opts)
 
-  require("mason-lspconfig").setup_handlers({
-    function(server_name)
-      local server_opts = opts
-
-      local server_conf_file = vim.fn.stdpath("config") ..
-          "/lua/configs/lsp_configs/server_configs/" ..
-          server_name .. ".lua"
-      if vim.fn.filereadable(server_conf_file) == 1
-      then
-        local require_ok
-        require_ok, server_opts = pcall(require,
-          "configs.lsp_configs.server_configs." .. server_name)
-        if require_ok then
-          server_opts = vim.tbl_deep_extend("force", server_opts, opts)
-        else
-          --vim.print(vim.inspect(server_opts))
-          vim.notify("[mason-lspconfig] server settings of " ..
-            server_name .. " load failed", vim.log.levels.WARN)
-          server_opts = opts
-        end
-        -- else
-        --   vim.notify("[mason-lspconfig] server " .. server_name ..
-        --     " not configured", vim.log.levels.DEBUG)
+  local function setup_lsp(server_name)
+    local server_conf_file = vim.fn.stdpath("config") ..
+        "/lua/configs/lsp_configs/server_configs/" ..
+        server_name .. ".lua"
+    if vim.fn.filereadable(server_conf_file) == 1
+    then
+      local require_ok, server_opts
+      require_ok, server_opts = pcall(require,
+        "configs.lsp_configs.server_configs." .. server_name)
+      if require_ok then
+        vim.lsp.config(server_name, server_opts)
+      else
+        --vim.print(vim.inspect(server_opts))
+        vim.notify("[mason-lspconfig] server settings of " ..
+          server_name .. " load failed", vim.log.levels.WARN)
       end
-
-      -- :h lspconfig-setup
-      lspconfig[server_name].setup(server_opts)
+      -- else
+      --   vim.notify("[mason-lspconfig] server " .. server_name ..
+      --     " not configured", vim.log.levels.DEBUG)
     end
-  })
+  end
+
+  local lspconfig = require("mason-lspconfig")
+  for _, v in ipairs(lspconfig.get_installed_servers()) do
+    setup_lsp(v)
+  end
 
   pcall(vim.cmd.LspStart)
 end
