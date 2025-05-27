@@ -51,14 +51,12 @@ return function()
   vim.lsp.config("*", opts)
 
   local function setup_lsp(server_name)
-    local server_conf_file = vim.fn.stdpath("config") ..
-        "/lua/configs/lsp_configs/server_configs/" ..
-        server_name .. ".lua"
+    local server_conf_file = vim.fn.stdpath("config") .. "/lua/server_configs/"
+        .. server_name .. ".lua"
     if vim.fn.filereadable(server_conf_file) == 1
     then
       local require_ok, server_opts
-      require_ok, server_opts = pcall(require,
-        "configs.lsp_configs.server_configs." .. server_name)
+      require_ok, server_opts = pcall(require, "server_configs." .. server_name)
       if require_ok then
         vim.lsp.config(server_name, server_opts)
       else

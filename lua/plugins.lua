@@ -57,7 +57,7 @@ local install_plugins = {
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    event = { "CursorHold", "CursorHoldI" },
+    event = { "BufReadPre", "BufNewFile" },
     config = require("configs.lsp_configs.lsp"),
     dependencies = {
       { "williamboman/mason.nvim" },

@@ -22,5 +22,6 @@ return function()
         },
       },
     },
+    win_split_mode = { "float", 0.9 },
   })
 end
