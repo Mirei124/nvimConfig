@@ -1,11 +1,11 @@
 {
   "logfmt": {
     "prefix": "logfmt",
-    "body": "\"%(asctime)s - %(name)s - %(levelname)s - %(message)s\""
+    "body": "\"%(asctime)s | %(levelname)s | %(filename)s:%(funcName)s:%(lineno)d - %(message)s\""
   },
   "logbsc": {
     "prefix": "logbsc",
-    "body": "import logging\nlogging.basicConfig(level=logging.INFO, format=\"%(asctime)s - %(name)s - %(levelname)s - %(message)s\")\nlogger = logging.getLogger(__file__)"
+    "body": "import logging\nlogging.basicConfig(level=logging.INFO, format=\"%(asctime)s | %(levelname)s | %(filename)s:%(funcName)s:%(lineno)d - %(message)s\")\nlogger = logging.getLogger(__file__)"
   },
   "matplotrc": {
     "prefix": "pltr",
