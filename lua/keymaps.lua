@@ -355,6 +355,11 @@ local plug_map = {
       :with_noremap()
       :with_silent()
       :with_desc("ui: Toggle day/night theme"),
+
+  ["t|<Esc>"] = map_cmd("<C-\\><C-n>")
+      :with_noremap()
+      :with_silent()
+      :with_desc("terminal: toggle to normal mode"),
 }
 bind.nvim_load_mapping(plug_map)
 
