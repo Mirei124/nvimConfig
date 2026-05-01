@@ -150,17 +150,22 @@ local install_plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     lazy = true,
-    build = function()
-      if #vim.api.nvim_list_uis() ~= 0 then
-        vim.api.nvim_command([[TSUpdate]])
-      end
-    end,
+    branch = "main",
+    build = ":TSUpdate",
     cmd = { "TSUpdate", "TSInstall" },
     event = "BufReadPre",
     config = require("configs.syntax_highlight.nvim-treesitter"),
     dependencies = {
       -- { "andymass/vim-matchup" },
-      { "nvim-treesitter/nvim-treesitter-textobjects" },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        init = function()
+          -- Disable entire built-in ftplugin mappings to avoid conflicts.
+          -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+          vim.g.no_plugin_maps = true
+        end,
+      },
       {
         "windwp/nvim-ts-autotag",
         config = function()
