@@ -17,10 +17,10 @@ return function()
 
   require("mason-lspconfig").setup({
     ensure_installed = {
-      "lua_ls",
-      "bashls",
-      "jsonls",
-      "lemminx",
+      -- "lua_ls",
+      -- "bashls",
+      -- "jsonls",
+      -- "lemminx",
     }
   })
 

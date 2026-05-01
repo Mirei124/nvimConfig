@@ -4,11 +4,11 @@ return function()
 
   require("nvim-treesitter.configs").setup({
     ensure_installed = {
-      "lua",
+      -- "lua",
       -- "markdown",
       -- "markdown_inline",
-      "vim",
-      "vimdoc",
+      -- "vim",
+      -- "vimdoc",
     },
     auto_install = true,
     highlight = {
