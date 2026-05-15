@@ -30,10 +30,10 @@ vim.g.mapleader = " "
 
 local plug_map = {
   -- lsp
-  ["n|<leader>li"] = map_cr("LspInfo")
+  ["n|<leader>li"] = map_cr("checkhealth vim.lsp")
       :with_silent()
       :with_desc("lsp: Info"),
-  ["n|<leader>lr"] = map_cr("LspRestart")
+  ["n|<leader>lr"] = map_cr("lsp restart")
       :with_silent()
       :with_nowait()
       :with_desc("lsp: Restart"),
