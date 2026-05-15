@@ -328,7 +328,7 @@ local install_plugins = {
     lazy = true,
     ft = "log",
     config = function()
-      require("log-highlight").setup()
+      require("log-highlight").setup({})
     end,
   },
 }
