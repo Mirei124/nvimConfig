@@ -45,3 +45,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     require("utils.funcs").lsp_formatting(false)
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  callback = function()
+    vim.opt_local.spell = true
+  end,
+})
